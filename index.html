@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Drachen-Hüter">
+  <meta name="theme-color" content="#140c2c">
+  <meta name="description" content="Ein Action-Rollenspiel im 16-Bit-Stil, bei dem Wissen echte Magie ist – Mathe, Deutsch und Englisch für die Grundschule.">
+  <title>Drachen-Hüter</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="screen"></canvas>
+
+    <!-- Anzeige oben -->
+    <div id="hud">
+      <div class="hud-box" id="hud-player">
+        <div class="hud-row"><span id="hud-name">Mika</span><span class="hud-lv">Stufe <b id="hud-level">1</b></span></div>
+        <div class="bar hp"><span class="lbl">LP</span><div class="track"><div id="hud-hp-fill" class="fill"></div></div><span id="hud-hp-text" class="val">50/50</span></div>
+        <div class="bar mp"><span class="lbl">MP</span><div class="track"><div id="hud-mp-fill" class="fill"></div></div><span id="hud-mp-text" class="val">10/10</span></div>
+        <div class="bar charge"><span class="lbl">⚔️</span><div class="track"><div id="hud-charge-fill" class="fill"></div></div><span id="hud-charge-text" class="val">100%</span></div>
+      </div>
+      <div class="hud-box" id="hud-right">
+        <div title="Taler">🪙 <b id="hud-coins">0</b></div>
+        <div title="Wissenssterne">⭐ <b id="hud-stars">0</b></div>
+        <div title="Funkis Stufe">🐉 <b id="hud-funki">1</b></div>
+      </div>
+      <div id="key-help">Pfeile/WASD laufen · Leertaste Schwert/Reden · K Zauber · Enter Ring-Menü</div>
+    </div>
+
+    <!-- Touch-Steuerung -->
+    <div id="controls">
+      <div id="stick-zone"></div>
+      <div id="stick"><div id="stick-knob"></div></div>
+      <div id="buttons">
+        <button class="cbtn" id="btn-ring" data-act="ring" aria-label="Ring-Menü"><span>◎</span><small>Menü</small></button>
+        <button class="cbtn" id="btn-magic" data-act="magic" aria-label="Zaubern"><span id="magic-icon">✨</span><small>Zauber</small></button>
+        <button class="cbtn big" id="btn-a" data-act="a" aria-label="Angreifen oder Sprechen"><span id="a-icon">⚔️</span></button>
+      </div>
+    </div>
+
+    <div id="ring" class="hidden"></div>
+
+    <div id="dialog" class="hidden">
+      <div id="dialog-name"></div>
+      <div class="window dialog-win">
+        <div id="dialog-portrait"></div>
+        <div class="dialog-main">
+          <div id="dialog-text"></div>
+          <div id="dialog-choices"></div>
+        </div>
+        <button id="dialog-speak" class="icon-btn" aria-label="Vorlesen">🔊</button>
+        <div id="dialog-next">▼</div>
+      </div>
+    </div>
+
+    <div id="quiz" class="hidden"></div>
+    <div id="screens"></div>
+    <div id="banner"></div>
+    <div id="toast"></div>
+    <noscript><div class="noscript">Bitte JavaScript aktivieren, um Drachen-Hüter zu spielen.</div></noscript>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
